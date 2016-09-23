@@ -1,5 +1,6 @@
 {
     "author_name": "Ted Cook",
+    "author_email": "you@example.com",
     "cookbook_name": "sample",
     "project_name": "{{ 'chef-cookbook-' + cookiecutter.cookbook_name.lower() }}",
     "cookbook_short_description": "{{ 'A chef cookbook to install and manage ' + cookiecutter.cookbook_name.lower() }}",

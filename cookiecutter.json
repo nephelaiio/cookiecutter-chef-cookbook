@@ -1,0 +1,10 @@
+{
+    "author_name": "Ted Cook",
+    "cookbook_name": "sample",
+    "project_name": "{{ 'chef-cookbook-' + cookiecutter.cookbook_name.lower() }}",
+    "cookbook_short_description": "{{ 'A chef cookbook to install and manage ' + cookiecutter.cookbook_name.lower() }}",
+    "release_year": "{% now 'local', '%Y' %}",
+    "version": "0.1.0",
+    "license": ["MIT","GPLV2","GPLV3","BDS-3"],
+    "_extensions": ["jinja2_time.TimeExtension"]
+}

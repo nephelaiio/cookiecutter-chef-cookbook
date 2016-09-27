@@ -17,3 +17,7 @@ bin/*
 
 # Vim
 **/*.swp
+
+# rbenv/rvm
+.ruby-gemset
+.ruby-version

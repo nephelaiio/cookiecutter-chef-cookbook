@@ -3,8 +3,8 @@
 # Recipe:: default
 #
 
-[node.package.names].flatten.each do |pkg|
+[node.{{ cookiecutter.cookbook_name }}.package.names].flatten.each do |pkg|
   package pkg do
-    action node.package.action
+    action node.{{ cookiecutter.cookbook_name }}.package.action
   end
 end

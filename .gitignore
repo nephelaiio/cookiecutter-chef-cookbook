@@ -2,3 +2,5 @@
 Gemfile.lock
 chef-cookbook-*
 .kitchen/
+**/.cache/
+**/__pycache__/

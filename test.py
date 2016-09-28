@@ -9,6 +9,7 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("A role name must be provided")
     else: 
+        cwd = os.path.curdir
         cookbook_name=sys.argv[1]
         project_name="chef-cookbook-{0}".format(cookbook_name)
         shutil.rmtree(project_name, ignore_errors=True)
@@ -21,5 +22,7 @@ if __name__ == '__main__':
         prep = subprocess.call (["gem", "install", "bundler"])
         bundler = subprocess.call (["bundle", "install"])
         test = subprocess.call(["kitchen", "test"])
-        shutil.rmtree(project_name, ignore_errors=True)
+        if (test == 0):
+            os.chdir(cwd)
+            shutil.rmtree(project_name, ignore_errors=True)
         sys.exit(test)

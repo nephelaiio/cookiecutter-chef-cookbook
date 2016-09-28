@@ -2,4 +2,9 @@
 # Cookbook Name:: project_name
 # Recipe:: default
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+
+[node.package.names].flatten.each do |pkg|
+  package pkg do
+    action node.package.action
+  end
+end

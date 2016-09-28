@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import sys
 import shutil
+import errno
 
 
 def fix_template_expansion(content, replacements):
@@ -18,6 +20,18 @@ def fix_template_expansion(content, replacements):
             content = content.replace(to_be_replaced, replacement)
     return content
 
+def fetch_file_content(url):
+    """
+    get the content of a given url
+    :param url: the url to get the content from
+    """
+    if (sys.version_info > (3, 0)):
+        import urllib.request
+        response = urllib.request.urlopen('http://python.org/')
+    else:
+        import urllib
+        response = urllib.urlopen('http://python.org/')
+    return(response.read())
 
 def get_file_content(file):
     """
@@ -25,7 +39,6 @@ def get_file_content(file):
     :param file: the file to get the content of
     """
     return open(file, 'r').read()
-
 
 def set_file_content(file, content):
     """
@@ -78,8 +91,8 @@ PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 LICENSE_DIRECTORY = os.path.join(PROJECT_DIRECTORY, 'licenses')
 
 if __name__ == '__main__':
-    # configure selected license file and remove all other alternatives
-    shutil.move(
-            os.path.join(LICENSE_DIRECTORY, '{{ cookiecutter.license }}'),
-            os.path.join(PROJECT_DIRECTORY, 'LICENSE'))
-    shutil.rmtree(LICENSE_DIRECTORY)
+	# configure selected license file and remove all other alternatives
+	shutil.move(
+		os.path.join(LICENSE_DIRECTORY, '{{ cookiecutter.license }}'),
+		os.path.join(PROJECT_DIRECTORY, 'LICENSE'))
+	shutil.rmtree(LICENSE_DIRECTORY)

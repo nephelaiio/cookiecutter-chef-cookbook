@@ -10,11 +10,9 @@ verifier:
 
 platforms:
   - name: ubuntu-16.04
-  - name: centos-7
-  - name: debian-8
 
 suites:
   - name: default
     run_list:
-      - recipe[{{ cookiecutter.project_name }}::default]
+      - recipe[{{ cookiecutter.cookbook_name }}::default]
     attributes:

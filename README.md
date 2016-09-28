@@ -1,5 +1,6 @@
 cookiecutter-chef-cookbook
 ==========================
+[![Build Status](https://travis-ci.org/nephelaiio/cookiecutter-ansible-role.svg?branch=master)](https://travis-ci.org/nephelaiio/cookiecutter-ansible-role)
 
 A cookiecutter to bootstrap chef cookbooks
 

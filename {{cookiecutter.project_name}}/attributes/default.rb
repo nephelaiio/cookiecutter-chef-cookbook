@@ -1,2 +1,5 @@
-default['{{ cookiecutter.cookbook_name }}']['package']['names'] = '{{ cookiecutter.cookbook_name }}'
-default['{{ cookiecutter.cookbook_name }}']['package']['action'] = :install
+# user modifyable parameters
+default['{{ cookiecutter.cookbook_name }}']['package']['{{ cookiecutter.cookbook_name }}']['package_name'] = '{{ cookiecutter.cookbook_name }}'
+default['{{ cookiecutter.cookbook_name }}']['package']['{{ cookiecutter.cookbook_name }}']['action'] = :install
+default['{{ cookiecutter.cookbook_name }}']['service']['{{ cookiecutter.cookbook_name }}']['service_name'] = '{{ cookiecutter.cookbook_name }}'
+default['{{ cookiecutter.cookbook_name }}']['service']['{{ cookiecutter.cookbook_name }}']['action'] = [:enable,:start]

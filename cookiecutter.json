@@ -1,11 +1,41 @@
 {
-    "author_name": "Ted Cook",
-    "author_email": "you@example.com",
-    "cookbook_name": "sample",
-    "project_name": "{{ 'chef-cookbook-' + cookiecutter.cookbook_name.lower() }}",
-    "cookbook_short_description": "{{ 'A chef cookbook to install and manage ' + cookiecutter.cookbook_name.lower() }}",
-    "release_year": "{% now 'local', '%Y' %}",
-    "version": "0.1.0",
-    "license": ["MIT","GPLV2","GPLV3","BDS-3"],
-    "_extensions": ["jinja2_time.TimeExtension"]
+  "author_name": "Ted Cook",
+  "author_email": "you@example.com",
+  "cookbook_name": "sample",
+  "cookbook_short_description": "{{ 'A chef cookbook to install and manage ' + cookiecutter.cookbook_name.lower() }}",
+  "license": ["MIT","GPLV2","GPLV3","BDS-3"],
+  "project_name": "{{ 'chef-cookbook-' + cookiecutter.cookbook_name.lower() }}",
+  "release_year": "{% now 'local', '%Y' %}",
+  "version": "0.1.0",
+  "_extensions": ["jinja2_time.TimeExtension"],
+  "_chef": {
+    "package": {
+      "attributes": [ "allow_downgrade",
+        "flush_cache",
+        "notifies",
+        "options",
+        "provider",
+        "source",
+        "timeout",
+        "version"
+      ]
+    },
+    "service": {
+      "attributes": [
+        "init_command",
+        "notifies",
+        "pattern",
+        "priority",
+        "provider",
+        "reload_command",
+        "restart_command",
+        "start_command",
+        "status_command",
+        "stop_command",
+        "subscribes",
+        "supports",
+        "timeout"
+      ]
+    }
+  }
 }

@@ -10,13 +10,12 @@ There are no execution requirements other than cookiecutter.
 
 Usage
 -----
-Generate a new Cookiecutter template layout: `cookiecutter gh:teddyphreak/cookiecutter-chef-cookbook`    
+Generate a new Cookiecutter template layout: `cookiecutter gh:nephelaiio/cookiecutter-chef-cookbook`    
 
 Testing
 -------
 For testing:
-* Vagrant is required on your development / integration machine in order to run tests.
-* Python [requiremets](/requirements.txt) can be installed form the command line with: `pip install -r requirements.txtl`    
+* Python [requirements](/requirements.txt) can be installed form the command line with: `pip install -r requirements.txtl`    
 * Bundler is strongly recommended in order to manage Ruby [requirements](/Gemfile). You can install both bundler and requirements from the command line with: 
 ```
 gem install bundler

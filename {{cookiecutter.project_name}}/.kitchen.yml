@@ -14,17 +14,6 @@ platforms:
       run_command: /sbin/init
 
 suites:
-  - name: xenial
+  - name: default
     run_list:
       - recipe[{{ cookiecutter.cookbook_name }}::default]
-    attributes:
-      {{ cookiecutter.cookbook_name }}:
-        service: 
-          {{ cookiecutter.cookbook_name }}:
-            action: 'start'
-            status_command: 'systemctl status {{ cookiecutter.cookbook_name }}'
-            start_command: 'systemctl start {{ cookiecutter.cookbook_name }}'
-            stop_command: 'systemctl stop {{ cookiecutter.cookbook_name }}'
-            restart_command: 'systemctl restart {{ cookiecutter.cookbook_name }}'
-    includes:
-      - ubuntu-16.04

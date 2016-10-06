@@ -1,6 +1,10 @@
 ---
 driver:
   name: docker
+  use_sudo: false
+  socket: <%= ENV['DOCKER_HOST'] %>
+  privileged: true
+  run_command: /sbin/init
 
 provisioner:
   name: chef_zero
@@ -9,9 +13,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
-    driver_config:
-      run_command: /sbin/init
+  - name: centos-6.7
 
 suites:
   - name: default

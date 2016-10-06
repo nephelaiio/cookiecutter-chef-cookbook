@@ -12,7 +12,7 @@ cookbook_test_command = "kitchen test"
 cookbook_test_success = 0
 
 
-@pytest.mark.parametrize('cookbook_name', ['tree'])
+@pytest.mark.parametrize('cookbook_name', ['haproxy'])
 def test_cookbook_name(cookbook_name):
     last_dir = os.path.curdir
     project_name="chef-cookbook-{0}".format(cookbook_name)

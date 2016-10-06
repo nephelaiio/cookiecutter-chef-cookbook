@@ -13,7 +13,13 @@ verifier:
   name: inspec
 
 platforms:
-  - name: centos-6.7
+  - name: centos-6
+    driver_config:
+      image: centos:centos6
+  - name: centos-7
+    driver_config:
+      image: centos:centos7
+      run_command: /usr/sbin/init
 
 suites:
   - name: default

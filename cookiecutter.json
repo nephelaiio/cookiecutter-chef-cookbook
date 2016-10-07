@@ -15,6 +15,7 @@
         "notifies",
         "options",
         "provider",
+        "notifies",
         "source",
         "timeout",
         "version"
@@ -35,6 +36,30 @@
         "subscribes",
         "supports",
         "timeout"
+      ]
+    },
+    "template": {
+      "attributes": [
+        "atomic_update",
+        "backup",
+        "cookbook",
+        "force_unlink",
+        "ignore_failure",
+        "inherits",
+        "local",
+        "manage_symlink_source",
+        "mode",
+        "owner",
+        "notifies",
+        "owner",
+        "provider",
+        "retries",
+        "retry_delay",
+        "rights",
+        "sensitive",
+        "subscribes",
+        "variables",
+        "verify"
       ]
     }
   }

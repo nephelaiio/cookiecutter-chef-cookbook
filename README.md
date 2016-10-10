@@ -16,14 +16,10 @@ Testing
 -------
 For testing:
 * Python [requirements](/requirements.txt) can be installed form the command line with: `pip install -r requirements.txtl`    
-* Bundler is strongly recommended in order to manage Ruby [requirements](/Gemfile). You can install both bundler and requirements from the command line with: 
-```
-gem install bundler
-bundle install
-```
-(You can find more information on test requirements [Travis](https://travis-ci.org) [configuration file](/.travis.yml) and the project [test script](/test.py))
 
-In order to run tests on the command line, simply do `python test.py`. You can find more information in the [Travis](https://travis-ci.org) [configuration file](/.travis.yml)
+You can find more information on test requirements [Travis](https://travis-ci.org) [configuration file](/.travis.yml) and the project [test script](/test.py)
+
+In order to run tests on the command line, simply do `pytest -s`. You can find more information in the [Travis](https://travis-ci.org) [configuration file](/.travis.yml)
 
 License
 -------

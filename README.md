@@ -15,7 +15,7 @@ Generate a new Cookiecutter template layout: `cookiecutter gh:nephelaiio/cookiec
 Testing
 -------
 For testing:
-* Python [requirements](/requirements.txt) can be installed form the command line with: `pip install -r requirements.txtl`    
+* Python [requirements](/requirements.txt) can be installed form the command line with: `pip install -r requirements.txt`    
 
 You can find more information on test requirements [Travis](https://travis-ci.org) [configuration file](/.travis.yml) and the project [test script](/test.py)
 

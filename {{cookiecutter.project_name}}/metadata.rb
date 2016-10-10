@@ -6,8 +6,6 @@ description '{{ cookiecutter.cookbook_short_description }}'
 long_description '{{ cookiecutter.cookbook_short_description }}'
 version '{{ cookiecutter.version }}'
 
-depends 'chef-sugar'
-
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Issues` link
 # issues_url 'https://github.com/<insert_org_here>/project_name/issues' if respond_to?(:issues_url)

@@ -4,3 +4,4 @@ chef-cookbook-*
 .kitchen/
 **/.cache/
 **/__pycache__/
+.ropeproject/

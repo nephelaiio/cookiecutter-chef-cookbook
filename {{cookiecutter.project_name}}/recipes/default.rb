@@ -17,8 +17,8 @@ if node['{{ cookiecutter.cookbook_name }}']['manage']['packages'] then
             action            node['{{ cookiecutter.cookbook_name }}']['package'][pkg]['action']
             # service notifications
             if node['{{ cookiecutter.cookbook_name }}']['manage']['services'] then
-                services.each do |svc_ref|
-                    notifies :restart, "service[#{ref.call(svc_ref)}]", :delayed
+                services.each do |svc|
+                    notifies :restart, "service[#{ref.call(svc)}]", :delayed
                 end
             end
         end
@@ -31,7 +31,7 @@ ruby_block "package-options" do
         if manage then
             packages = [node['{{ cookiecutter.cookbook_name }}']['package'].keys()].flatten
             packages.each do |pkg|
-                optional_attributes = node['{{ cookiecutter.cookbook_name }}']['package'][pkg].keys()
+                optional_attributes = node['{{ cookiecutter.cookbook_name }}']['package'][pkg].keys() - ['package_name', 'action']
                 package_ref = run_context.resource_collection.find(:package => ref.call(pkg))
                 optional_attributes.each do |attr|
                     attribute_value = node['{{ cookiecutter.cookbook_name }}']['package'][pkg][attr]
@@ -61,13 +61,49 @@ ruby_block "service-options" do
         if manage then
             services = [node['{{ cookiecutter.cookbook_name }}']['service'].keys()].flatten
             services.each do |svc|
-                optional_attributes = node['{{ cookiecutter.cookbook_name }}']['service'][svc].keys()
+                optional_attributes = node['{{ cookiecutter.cookbook_name }}']['service'][svc].keys() - ['action', 'service_name']
                 # optional service attributes
                 service_ref = run_context.resource_collection.find(:service => ref.call(svc))
                 optional_attributes.each do |attr|
                     attribute_value = node['{{ cookiecutter.cookbook_name }}']['service'][svc][attr]
                     if attribute_value then
                         attribute_ref = service_ref.method(attr)
+                        attribute_ref.call(attribute_value)
+                    end
+                end
+            end
+        end
+    end
+end
+
+if node['{{ cookiecutter.cookbook_name }}']['manage']['config'] then
+    configs.each do |cfg|
+        template ref.call(cfg) do
+            # required template attributes
+            path                node['{{ cookiecutter.cookbook_name }}']['service'][cfg]['path']
+            source              node['{{ cookiecutter.cookbook_name }}']['service'][cfg]['source']
+            # service notifications
+            if node['{{ cookiecutter.cookbook_name }}']['manage']['services'] then
+                services.each do |svc|
+                    notifies :restart, "service[#{ref.call(svc)}]", :delayed
+                end
+            end
+        end
+    end
+end
+
+ruby_block "config-options" do
+    block do
+        manage = node['{{ cookiecutter.cookbook_name }}']['manage']['config']
+        if manage then
+            templates = [node['{{ cookiecutter.cookbook_name }}']['config'].keys()].flatten
+            templates.each do |tpl|
+                optional_attributes = node['{{ cookiecutter.cookbook_name }}']['config'][tpl].keys() - ['path', 'source']
+                template_ref = run_context.resource_collection.find(:template => ref.call(tpl))
+                optional_attributes.each do |attr|
+                    attribute_value = node['{{ cookiecutter.cookbook_name }}']['config'][tpl][attr]
+                    if attribute_value then
+                        attribute_ref = template_ref.method(attr)
                         attribute_ref.call(attribute_value)
                     end
                 end

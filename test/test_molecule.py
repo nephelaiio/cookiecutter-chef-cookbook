@@ -11,10 +11,10 @@ cookbook_test_command = "kitchen test"
 cookbook_test_success = 0
 
 
-@pytest.mark.parametrize('cookbook_name', ['haproxy'])
-def test_cookbook_name(cookbook_name):
+@pytest.mark.parametrize('cookbook_target', ['haproxy'])
+def test_cookbook_name(cookbook_target):
     last_dir = os.path.curdir
-    project_name = "chef-cookbook-{0}".format(cookbook_name)
+    project_name = "chef-cookbook-{0}".format(cookbook_target)
     test_dir = project_name
     try:
         shutil.rmtree(test_dir, ignore_errors=True)
@@ -22,7 +22,7 @@ def test_cookbook_name(cookbook_name):
             '.',
             no_input=True,
             overwrite_if_exists=True,
-            extra_context={'cookbook_name': cookbook_name,
+            extra_context={'cookbook_target': cookbook_target,
                            'project_name': project_name})
         os.chdir(test_dir)
         for command in cookbook_setup_commands:

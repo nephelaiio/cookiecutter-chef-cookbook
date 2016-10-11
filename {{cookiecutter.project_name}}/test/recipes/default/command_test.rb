@@ -5,6 +5,6 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at https://docs.chef.io/inspec_reference.html
 
-describe command("{{ cookiecutter.cookbook_name }} -v") do
+describe command("{{ cookiecutter.cookbook_target }} -v") do
   its('exit_status') { should eq 0 }
 end

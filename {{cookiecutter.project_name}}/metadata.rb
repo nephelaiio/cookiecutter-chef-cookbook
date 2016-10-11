@@ -1,6 +1,5 @@
-name '{{ cookiecutter.cookbook_name }}'
+name '{{ cookiecutter._cookbook_name }}'
 maintainer '{{ cookiecutter.author_name }}'
-maintainer_email '{{ cookiecutter.author_name }}'
 license '{{ cookiecutter.license }}'
 description '{{ cookiecutter.cookbook_short_description }}'
 long_description '{{ cookiecutter.cookbook_short_description }}'

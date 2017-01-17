@@ -2,10 +2,10 @@
   "author_name": "Ted Cook",
   "cookbook_target": "sample",
   "cookbook_prefix": "",
-  "_cookbook_name": "{{ cookiecutter.cookbook_prefix + cookiecutter.cookbook_target }}",
-  "cookbook_short_description": "{{ 'A chef cookbook to install and manage ' + cookiecutter.cookbook_target.lower() }}",
+  "_cookbook_name": "{{ cookiecutter.cookbook_prefix|lower + cookiecutter.cookbook_target|lower }}",
+  "cookbook_short_description": "{{ 'A chef cookbook to install and manage ' + cookiecutter.cookbook_target|lower }}",
   "license": ["MIT","GPLV2","GPLV3","BDS-3"],
-  "project_name": "{{ 'chef-cookbook-' + cookiecutter._cookbook_name.lower() }}",
+  "project_name": "{{ 'chef-cookbook-' + cookiecutter.cookbook_prefix|lower + cookiecutter.cookbook_target|lower }}",
   "release_year": "{% now 'local', '%Y' %}",
   "version": "0.1.0",
   "_extensions": ["jinja2_time.TimeExtension"]

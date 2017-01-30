@@ -5,3 +5,6 @@ chef-cookbook-*
 **/.cache/
 **/__pycache__/
 .ropeproject/
+.bash_history
+.bundle/
+.cookiecutter_replay/

@@ -24,4 +24,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[{{ cookiecutter._cookbook_name }}::default]
+      - recipe[{{ cookiecutter.cookbook_name }}::default]
